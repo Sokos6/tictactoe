@@ -24,4 +24,17 @@ public class TicTacToeSpec {
         exception.expect(RuntimeException.class);
         ticTacToe.play(5, 2);
     }
+
+    @Test
+    public void whenYOutsideBoardThenRuntimeException() {
+        exception.expect(RuntimeException.class);
+        ticTacToe.play(2, 5);
+    }
+
+    @Test
+    public void whenOccupiedThenRuntimeException() {
+        ticTacToe.play(2, 1);
+        exception.expect(RuntimeException.class);
+        ticTacToe.play(2, 1);
+    }
 }
